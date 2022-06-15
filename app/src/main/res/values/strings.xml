@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">youkol</string>
+    <string name="email_not_empty">Required Email id!</string>
+    <string name="validemail">Please Enter Valid Email</string>
+    <string name="valid_password">Password length must be enter 6 digits</string>
+    <string name="password_not_empty">Password Required!</string>
+    <string name="allow_audio_in_out_on_these_devices">Allow audio in/ out on\n these devices</string>
+</resources>
