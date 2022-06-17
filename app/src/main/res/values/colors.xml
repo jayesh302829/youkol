@@ -17,4 +17,9 @@
     <color name="chekcolor">#FF9228</color>
     <color name="uncheckcolor">#999999</color>
     <color name="disablecolor">#716C67</color>
+    <color name="day_disable_uncheck">#C6C6C6</color>
+    <color name="daybodercolor">#4B4664</color>
+    <color name="applybuttoncolor">#130160</color>
+    <color name="disable_switch_on">#B8B8B8</color>
+
 </resources>

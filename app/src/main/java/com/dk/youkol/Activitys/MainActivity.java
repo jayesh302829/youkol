@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 String email = binding.edtEmail.getText().toString();
                 String password = binding.edtPassword.getText().toString();
 
-                if (email.isEmpty()) {
+                /*if (email.isEmpty()) {
                     binding.edtEmail.setError(getString(R.string.email_not_empty));
                     isEmailValid = false;
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -61,20 +61,21 @@ public class MainActivity extends AppCompatActivity {
 
                 if (isEmailValid && isPasswordValid){
 
-                    if (email.equalsIgnoreCase("johndoe@comminsur.com") && password.equals("123456")){
+                    if (email.equalsIgnoreCase("johndoe@comminsur.com") && password.equals("123456")){*/
                         Intent intent = new Intent(activity, DashboardActivity.class);
                         intent.putExtra("type", Const.Admin);
                         startActivity(intent);
-                    }else {
+                        finish();
+                   /* }else {
                         Toast.makeText(activity, "Email and Password Wrong\n PLease Try Again!", Toast.LENGTH_SHORT).show();
                     }
-                }
+                }*/
             }
         });
         binding.clContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity, DrivingActivity.class);
+                Intent intent = new Intent(activity, DrivingViewActivity.class);
                 intent.putExtra("type", Const.Guest);
                 startActivity(intent);
             }

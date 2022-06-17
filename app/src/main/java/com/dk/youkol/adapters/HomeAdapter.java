@@ -45,7 +45,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewholder> 
         DataModel dataModel = dataModelArrayList.get(position);
         Glide.with(activity).load(activity.getDrawable(dataModel.getImageId())).into(holder.binding.mainImage);
         holder.binding.textView3.setText(dataModel.getName());
-        holder.binding.edit.setOnClickListener(new View.OnClickListener() {
+
+        holder.binding.maincard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent;
@@ -59,6 +60,21 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewholder> 
                 }
             }
         });
+
+        /*holder.binding.edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent;
+                if (Const.Kids.equals(dataModel.getName())){
+                    intent = new Intent(activity, KidsActivity.class);
+                    activity.startActivity(intent);
+                }else if (Const.Driving.equals(dataModel.getName())){
+                    intent = new Intent(activity, DrivingActivity.class);
+                    intent.putExtra("type",Admin);
+                    activity.startActivity(intent);
+                }
+            }
+        });*/
     }
 
     @Override

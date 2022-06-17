@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Youkol">
         <activity
+            android:name=".Activitys.DrivingViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activitys.DrivingActivity"
             android:exported="false" />
         <activity

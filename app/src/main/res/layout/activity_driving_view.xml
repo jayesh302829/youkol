@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/mainscreencolor"
-        tools:context=".Activitys.DrivingActivity">
+        tools:context=".Activitys.DrivingViewActivity">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -630,8 +630,11 @@
                         android:id="@+id/appCompatCheckBox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:button="@drawable/check_box_tint"
-                        android:checked="false"
+                        android:button="@drawable/check_box_disable"
+                        android:checked="true"
+                        android:enabled="false"
+                        android:textColor="#292D32"
+                        android:paddingLeft="@dimen/_5sdp"
                         android:fontFamily="@font/dmsans_regular"
                         android:text="@string/nearby_infotainment"
                         app:layout_constraintStart_toStartOf="parent"
@@ -646,8 +649,9 @@
                         android:layout_marginEnd="@dimen/_15sdp"
                         android:maxHeight="2dp"
                         android:minHeight="2dp"
+                        android:progress="60"
                         android:progressDrawable="@drawable/seek_bar_ruler"
-                        android:progressTint="@color/purple_700"
+                        android:progressTint="@color/disablecolor"
                         android:thumb="@drawable/seek_bar_slider_deactive"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -697,20 +701,36 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
                             <com.suke.widget.SwitchButton
                                 android:id="@+id/switchButton"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_15sdp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
-                                app:sb_background="@color/gry"
+                                app:sb_background="@color/disable_switch_on"
+                                app:sb_checked="false"
+                                android:clickable="false"
+                                android:visibility="gone"
                                 app:sb_button_color="@color/white"
-                                app:sb_checked_color="@color/chekcolor"
-                                app:sb_checkline_color="@color/chekcolor"
+                                app:sb_checked_color="@color/disablecolor"
+                                app:sb_checkline_color="@color/disablecolor"
                                 app:sb_checkline_width="0dp"
-                                app:sb_shadow_color="@color/gry"
-                                app:sb_uncheckcircle_color="@color/gry" />
+                                app:sb_shadow_color="@color/disable_switch_on"
+                                app:sb_uncheckcircle_color="@color/disable_switch_on" />
+
+                            <ImageView
+                                android:id="@+id/iv_switch1"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:src="@drawable/iv_switch_off"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -720,9 +740,9 @@
                                 android:gravity="center_vertical"
                                 android:text="Location based"
                                 android:textColor="@color/subtxtcolor"
-                                app:layout_constraintBottom_toBottomOf="@+id/switchButton"
+                                app:layout_constraintBottom_toBottomOf="@+id/iv_switch1"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/switchButton"
+                                app:layout_constraintStart_toEndOf="@+id/iv_switch1"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -735,14 +755,24 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
+                            <ImageView
+                                android:id="@+id/iv_switch2"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:src="@drawable/iv_switch_off"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
                             <com.suke.widget.SwitchButton
                                 android:id="@+id/switchButton1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_15sdp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:sb_background="@color/gry"
+                                android:visibility="gone"
                                 app:sb_button_color="@color/white"
                                 app:sb_checked_color="@color/chekcolor"
                                 app:sb_checkline_color="@color/chekcolor"
@@ -758,9 +788,9 @@
                                 android:gravity="center_vertical"
                                 android:text="Speed based"
                                 android:textColor="@color/subtxtcolor"
-                                app:layout_constraintBottom_toBottomOf="@+id/switchButton1"
+                                app:layout_constraintBottom_toBottomOf="@+id/iv_switch2"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/switchButton1"
+                                app:layout_constraintStart_toEndOf="@+id/iv_switch2"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -775,18 +805,28 @@
 
                             <com.suke.widget.SwitchButton
                                 android:id="@+id/switchButton2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_15sdp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:sb_background="@color/gry"
+                                android:visibility="gone"
                                 app:sb_button_color="@color/white"
                                 app:sb_checked_color="@color/chekcolor"
                                 app:sb_checkline_color="@color/chekcolor"
                                 app:sb_checkline_width="0dp"
                                 app:sb_shadow_color="@color/gry"
                                 app:sb_uncheckcircle_color="@color/gry" />
+
+                            <ImageView
+                                android:id="@+id/iv_switch3"
+                                android:layout_width="@dimen/_25sdp"
+                                android:layout_height="@dimen/_15sdp"
+                                android:src="@drawable/iv_switch_on"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -796,9 +836,9 @@
                                 android:gravity="center_vertical"
                                 android:text="Time based"
                                 android:textColor="@color/subtxtcolor"
-                                app:layout_constraintBottom_toBottomOf="@+id/switchButton2"
+                                app:layout_constraintBottom_toBottomOf="@+id/iv_switch3"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@+id/switchButton2"
+                                app:layout_constraintStart_toEndOf="@+id/iv_switch3"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -845,9 +885,11 @@
                             android:layout_marginEnd="@dimen/_15sdp"
                             android:maxHeight="2dp"
                             android:minHeight="2dp"
+                            android:progress="20"
+                            android:enabled="false"
                             android:progressDrawable="@drawable/seek_bar_ruler"
-                            android:progressTint="@color/purple_700"
-                            android:thumb="@drawable/small_slider_active" />
+                            android:progressTint="@color/disablecolor"
+                            android:thumb="@drawable/seek_bar_slider_deactive" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -883,9 +925,10 @@
                             android:layout_marginEnd="@dimen/_15sdp"
                             android:maxHeight="2dp"
                             android:minHeight="2dp"
+                            android:progress="80"
                             android:progressDrawable="@drawable/seek_bar_ruler"
-                            android:progressTint="@color/purple_700"
-                            android:thumb="@drawable/small_slider_active" />
+                            android:progressTint="@color/disablecolor"
+                            android:thumb="@drawable/seek_bar_slider_deactive" />
 
                     </LinearLayout>
 
@@ -925,8 +968,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@android:color/transparent"
-                            android:button="@drawable/radio_enable"
-                            android:checked="false"
+                            android:button="@drawable/radio_disable"
+                            android:checked="true"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:paddingLeft="@dimen/_5sdp"
                             android:text="All users"
@@ -938,8 +982,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@android:color/transparent"
-                            android:button="@drawable/radio_enable"
+                            android:button="@drawable/radio_disable"
                             android:checked="false"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:paddingLeft="@dimen/_5sdp"
                             android:text="Spesific groups"
@@ -951,8 +996,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@android:color/transparent"
-                            android:button="@drawable/radio_enable"
+                            android:button="@drawable/radio_disable"
                             android:checked="false"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:paddingLeft="@dimen/_5sdp"
                             android:text="Spesific users"
@@ -985,8 +1031,9 @@
                             android:id="@+id/appCompatCheckBox1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:button="@drawable/check_box_tint"
-                            android:checked="false"
+                            android:button="@drawable/check_box_disable"
+                            android:checked="true"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Policy start"
                             android:textColor="@color/subtxtcolor"
@@ -996,8 +1043,9 @@
                             android:id="@+id/appCompatCheckBox2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:button="@drawable/check_box_tint"
-                            android:checked="false"
+                            android:button="@drawable/check_box_disable"
+                            android:checked="true"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Policy end"
                             android:textColor="@color/subtxtcolor"
@@ -1007,8 +1055,9 @@
                             android:id="@+id/appCompatCheckBox3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:button="@drawable/check_box_tint"
+                            android:button="@drawable/check_box_disable"
                             android:checked="false"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Modifications"
                             android:textColor="@color/subtxtcolor"
@@ -1018,8 +1067,9 @@
                             android:id="@+id/appCompatCheckBox4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:button="@drawable/check_box_tint"
+                            android:button="@drawable/check_box_disable"
                             android:checked="false"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Violations"
                             android:textColor="@color/subtxtcolor"
@@ -1029,8 +1079,9 @@
                             android:id="@+id/appCompatCheckBox5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:button="@drawable/check_box_tint"
-                            android:checked="false"
+                            android:button="@drawable/check_box_disable"
+                            android:checked="true"
+                            android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Exceptions"
                             android:textColor="@color/subtxtcolor"
@@ -1043,6 +1094,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:layout_marginStart="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_15sdp"
