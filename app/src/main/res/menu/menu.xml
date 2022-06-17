@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/iv_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/menu_user"
+        android:icon="@drawable/iv_user"
+        android:title="@string/user" />
+    <item
+        android:id="@+id/menu_shield"
+        android:icon="@drawable/iv_shield"
+        android:title="@string/shield" />
+    <item
+        android:id="@+id/menu_notification"
+        android:icon="@drawable/iv_bell"
+        android:title="@string/notification" />
+
+    <item
+        android:id="@+id/menu_setting"
+        android:icon="@drawable/iv_settings"
+        android:title="@string/setting" />
+
+</menu>

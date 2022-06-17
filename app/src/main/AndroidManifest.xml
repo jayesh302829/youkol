@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Youkol">
         <activity
-            android:name=".ViewConversationPolicyActivity"
+            android:name=".Activitys.DrivingActivity"
             android:exported="false" />
         <activity
-            android:name=".SetConversationPolicyActivity"
+            android:name=".Activitys.KidsActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activitys.DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
