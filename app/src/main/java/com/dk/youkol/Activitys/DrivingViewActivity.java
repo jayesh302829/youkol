@@ -90,6 +90,7 @@ public class DrivingViewActivity extends AppCompatActivity {
             }
         });
 
+
         binding.rvdays.setHasFixedSize(true);
 //        binding.rvdays.addItemDecoration(new DividerItemDecoration(activity, LinearLayout.HORIZONTAL));
         binding.rvdays.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL,false));
@@ -100,7 +101,7 @@ public class DrivingViewActivity extends AppCompatActivity {
                 binding.rvdays.getViewTreeObserver().removeOnPreDrawListener(this);
                 int finalHeight = binding.rvdays.getMeasuredHeight();
                 int finalWidth = binding.rvdays.getMeasuredWidth();
-                dayAdapter = new DayAdapter(dayModelArrayList,activity,finalWidth,new DayInterface() {
+                dayAdapter = new DayAdapter(dayModelArrayList, false, activity,finalWidth,new DayInterface() {
                     @Override
                     public void passPosition(int position, DayModel dayModel) {
                         DayModel selectedday = dayAdapter.dayModelArrayList.get(position);
