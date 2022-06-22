@@ -27,7 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class DashboardActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
+public class DashboardActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
     ActivityDashboardBinding binding;
     Activity activity = this;

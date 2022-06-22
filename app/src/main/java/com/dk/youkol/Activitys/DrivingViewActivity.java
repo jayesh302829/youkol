@@ -29,7 +29,7 @@ import com.dk.youkol.models.DayModel;
 
 import java.util.ArrayList;
 
-public class DrivingViewActivity extends AppCompatActivity {
+public class DrivingViewActivity extends BaseActivity {
 
     ActivityDrivingViewBinding binding;
     Activity activity = this;

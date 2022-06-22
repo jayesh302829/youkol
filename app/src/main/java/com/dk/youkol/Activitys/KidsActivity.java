@@ -23,7 +23,7 @@ import com.dk.youkol.utils.GridSpacingItemDecoration;
 
 import java.util.ArrayList;
 
-public class KidsActivity extends AppCompatActivity {
+public class KidsActivity extends BaseActivity {
 
     ActivityKidsBinding binding;
     Activity activity = this;

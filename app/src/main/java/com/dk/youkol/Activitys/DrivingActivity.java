@@ -33,7 +33,7 @@ import com.suke.widget.SwitchButton;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-public class DrivingActivity extends AppCompatActivity {
+public class DrivingActivity extends BaseActivity {
 
     ActivityDrivingBinding binding;
     Activity activity = this;

@@ -14,7 +14,7 @@ import com.dk.youkol.R;
 import com.dk.youkol.databinding.ActivityMainBinding;
 import com.dk.youkol.utils.Const;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     ActivityMainBinding binding;
     Activity activity = this;
