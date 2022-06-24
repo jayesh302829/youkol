@@ -1,14 +1,8 @@
 package com.dk.youkol.Activitys;
 
-import static com.dk.youkol.utils.Const.Atwork;
 import static com.dk.youkol.utils.Const.Biking;
-import static com.dk.youkol.utils.Const.Driving;
-import static com.dk.youkol.utils.Const.Kids;
-import static com.dk.youkol.utils.Const.Outsidevehicle;
 import static com.dk.youkol.utils.Const.*;
-import static com.dk.youkol.utils.Const.Walking;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -34,14 +28,13 @@ public class KidsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(activity,R.layout.activity_kids);
 
-
         binding.rvKidsmenu.setLayoutManager(new GridLayoutManager(activity,2));
-        dataModelArrayList.add(new DataModel(0,R.drawable.iv_kids, Skateboarding));
-        dataModelArrayList.add(new DataModel(1,R.drawable.iv_rollerblading,Rollerblading));
-        dataModelArrayList.add(new DataModel(2,R.drawable.iv_outdoor_playing, OutdoorPlaying));
-        dataModelArrayList.add(new DataModel(3,R.drawable.iv_biking_2,Biking));
-        dataModelArrayList.add(new DataModel(4,R.drawable.iv_at_school,AtSchool));
-        dataModelArrayList.add(new DataModel(5,R.drawable.iv_other_activities,OtherActivities));
+        dataModelArrayList.add(new DataModel(0,R.drawable.iv_kids, Skateboarding,false));
+        dataModelArrayList.add(new DataModel(1,R.drawable.iv_rollerblading,Rollerblading,false));
+        dataModelArrayList.add(new DataModel(2,R.drawable.iv_outdoor_playing, OutdoorPlaying,false));
+        dataModelArrayList.add(new DataModel(3,R.drawable.iv_biking_2,Biking,false));
+        dataModelArrayList.add(new DataModel(4,R.drawable.iv_at_school,AtSchool,false));
+        dataModelArrayList.add(new DataModel(5,R.drawable.iv_other_activities,OtherActivities,false));
         int spanCount = 2; // 3 columns
         int spacing = 20; // 50px
         boolean includeEdge = true;

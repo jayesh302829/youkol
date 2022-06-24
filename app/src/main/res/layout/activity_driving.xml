@@ -10,13 +10,18 @@
         android:forceDarkAllowed="false"
         tools:context=".Activitys.DrivingActivity">
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/toolbarCard"
@@ -280,7 +285,7 @@
                                 android:id="@+id/mainbg3"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/bg_selector" >
+                                android:background="@drawable/bg_selector">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage3"
@@ -676,7 +681,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_10dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -842,6 +847,107 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/speedbased"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cl_devices">
+
+                            <!-- <androidx.appcompat.widget.AppCompatCheckBox
+                                 android:id="@+id/appCompatCheckBox"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:button="@drawable/check_box_tint"
+                                 android:checked="false"
+                                 android:fontFamily="@font/dmsans_regular"
+                                 android:text="@string/nearby_infotainment"
+                                 app:layout_constraintStart_toStartOf="parent"
+                                 app:layout_constraintTop_toTopOf="parent" />-->
+
+                            <SeekBar
+                                android:id="@+id/seekBarSpeed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:maxHeight="2dp"
+                                android:minHeight="2dp"
+                                android:progressDrawable="@drawable/seek_bar_ruler"
+                                android:progressTint="@color/purple_700"
+                                android:thumb="@drawable/seek_bar_slider_active"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                            <!--                android:thumb="@drawable/thumb_image"-->
+                            <TextView
+                                android:id="@+id/tvSpeed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="20 km/h"
+                                android:textColor="@color/txtcolor"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/seekBarSpeed"
+                                app:layout_constraintStart_toStartOf="@+id/seekBarSpeed"
+                                app:layout_constraintTop_toBottomOf="@+id/seekBarSpeed" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <!--<LinearLayout
+                            android:id="@+id/speedbased"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="visible"
+                            android:layout_marginTop="@dimen/_20sdp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_25sdp">
+
+                                <TextView
+                                    android:id="@+id/titleSpeed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/dmsans_regular"
+                                    android:text="Speed: "
+                                    android:textColor="@color/black" />
+
+                                <TextView
+                                    android:id="@+id/tvSpeed"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/dmsans_regular"
+                                    android:text="20 km/h"
+                                    android:textColor="@color/black" />
+
+                            </LinearLayout>
+
+
+                            <SeekBar
+                                android:id="@+id/seekBarSpeed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:maxHeight="2dp"
+                                android:minHeight="2dp"
+                                android:progressDrawable="@drawable/seek_bar_ruler"
+                                android:progressTint="@color/purple_700"
+                                android:thumb="@drawable/small_slider_active" />
+
+                        </LinearLayout>
+-->
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -1006,6 +1112,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
                         <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/rballuser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
@@ -1019,6 +1126,7 @@
                             android:textSize="@dimen/_10sdp" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/rbspecific_group"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
@@ -1032,6 +1140,7 @@
                             android:textSize="@dimen/_10sdp" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
+                            android:id="@+id/rbspecificUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
@@ -1125,76 +1234,76 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnReset"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/resetbutton"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_notification">
-
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.3" />
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/btnReset"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_8sdp"
-                        android:background="@drawable/resetbutton"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/opensans_regular"
-                            android:gravity="center"
-                            android:text="Reset"
-                            android:textColor="@color/purple_700"
-                            android:textSize="@dimen/_12sdp" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/btnApply"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_8sdp"
-                        android:background="@drawable/applybutton"
-                        android:clickable="true"
-                        android:foreground="?android:attr/selectableItemBackground"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/guideline2"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/opensans_regular"
-                            android:gravity="center"
-                            android:text="Apply Now"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_12sdp" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/opensans_regular"
+                    android:gravity="center"
+                    android:text="Reset"
+                    android:textColor="@color/purple_700"
+                    android:textSize="@dimen/_12sdp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnApply"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/applybutton"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline2"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/opensans_regular"
+                    android:gravity="center"
+                    android:text="Apply Now"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

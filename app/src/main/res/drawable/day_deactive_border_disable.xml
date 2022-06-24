@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-    <stroke android:color="@color/day_disable_uncheck" android:width="@dimen/_1sdp"/>
+    <stroke android:color="@color/day_disable_uncheck" android:width="@dimen/_1dp"/>
     <corners android:radius="@dimen/_4sdp"/>
     <solid android:color="@color/day_disable_uncheck"/>
 </shape>

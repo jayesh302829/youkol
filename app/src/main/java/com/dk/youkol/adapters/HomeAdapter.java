@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewholder> {
 
-    ArrayList<DataModel> dataModelArrayList;
+    public ArrayList<DataModel> dataModelArrayList;
     Activity activity;
 
     public HomeAdapter(ArrayList<DataModel> dataModelArrayList, Activity activity) {
@@ -46,6 +46,12 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewholder> 
         Glide.with(activity).load(activity.getDrawable(dataModel.getImageId())).into(holder.binding.mainImage);
         holder.binding.textView3.setText(dataModel.getName());
 
+        if (dataModel.isSelected()){
+            holder.binding.mainbg.setSelected(true);
+        }else {
+            holder.binding.mainbg.setSelected(false);
+        }
+
         holder.binding.maincard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,31 +61,23 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewholder> 
                     activity.startActivity(intent);
                 }else if (Const.Driving.equals(dataModel.getName())){
                     intent = new Intent(activity, DrivingActivity.class);
-                    intent.putExtra("type",Admin);
+                    intent.putExtra("type",dataModel.getName());
                     activity.startActivity(intent);
                 }
             }
         });
 
-        /*holder.binding.edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent;
-                if (Const.Kids.equals(dataModel.getName())){
-                    intent = new Intent(activity, KidsActivity.class);
-                    activity.startActivity(intent);
-                }else if (Const.Driving.equals(dataModel.getName())){
-                    intent = new Intent(activity, DrivingActivity.class);
-                    intent.putExtra("type",Admin);
-                    activity.startActivity(intent);
-                }
-            }
-        });*/
     }
 
     @Override
     public int getItemCount() {
         return dataModelArrayList.size();
+    }
+
+    public void update(ArrayList<DataModel> dataModelArrayList1) {
+        dataModelArrayList.clear();
+        dataModelArrayList.addAll(dataModelArrayList1);
+        notifyDataSetChanged();
     }
 
     public class MyViewholder extends RecyclerView.ViewHolder {

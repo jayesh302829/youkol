@@ -706,7 +706,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"/>
 
-                            <com.suke.widget.SwitchButton
+                           <!-- <com.suke.widget.SwitchButton
                                 android:id="@+id/switchButton"
                                 android:layout_width="@dimen/_25sdp"
                                 android:layout_height="@dimen/_15sdp"
@@ -722,7 +722,7 @@
                                 app:sb_checkline_color="@color/disablecolor"
                                 app:sb_checkline_width="0dp"
                                 app:sb_shadow_color="@color/disable_switch_on"
-                                app:sb_uncheckcircle_color="@color/disable_switch_on" />
+                                app:sb_uncheckcircle_color="@color/disable_switch_on" />-->
 
                             <ImageView
                                 android:id="@+id/iv_switch1"
@@ -764,7 +764,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"/>
-
+<!--
                             <com.suke.widget.SwitchButton
                                 android:id="@+id/switchButton1"
                                 android:layout_width="@dimen/_25sdp"
@@ -779,7 +779,7 @@
                                 app:sb_checkline_color="@color/chekcolor"
                                 app:sb_checkline_width="0dp"
                                 app:sb_shadow_color="@color/gry"
-                                app:sb_uncheckcircle_color="@color/gry" />
+                                app:sb_uncheckcircle_color="@color/gry" />-->
 
                             <TextView
                                 android:layout_width="0dp"
@@ -804,7 +804,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
 
-                            <com.suke.widget.SwitchButton
+                            <!--<com.suke.widget.SwitchButton
                                 android:id="@+id/switchButton2"
                                 android:layout_width="@dimen/_25sdp"
                                 android:layout_height="@dimen/_15sdp"
@@ -818,7 +818,7 @@
                                 app:sb_checkline_color="@color/chekcolor"
                                 app:sb_checkline_width="0dp"
                                 app:sb_shadow_color="@color/gry"
-                                app:sb_uncheckcircle_color="@color/gry" />
+                                app:sb_uncheckcircle_color="@color/gry" />-->
 
                             <ImageView
                                 android:id="@+id/iv_switch3"

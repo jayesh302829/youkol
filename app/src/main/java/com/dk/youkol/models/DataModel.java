@@ -3,12 +3,7 @@ package com.dk.youkol.models;
 public class DataModel {
     int id,imageId;
     String name;
-
-    public DataModel(int id, int imageId, String name) {
-        this.id = id;
-        this.imageId = imageId;
-        this.name = name;
-    }
+    boolean isSelected;
 
     public int getId() {
         return id;
@@ -32,5 +27,20 @@ public class DataModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+
+    public DataModel(int id, int imageId, String name, boolean isSelected) {
+        this.id = id;
+        this.imageId = imageId;
+        this.name = name;
+        this.isSelected = isSelected;
     }
 }
