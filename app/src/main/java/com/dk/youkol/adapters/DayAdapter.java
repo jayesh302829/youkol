@@ -92,6 +92,12 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.MyViewHolder> {
         notifyDataSetChanged();
     }
 
+    public void setUpdateList(ArrayList<DayModel> dayModelArrayList1) {
+        dayModelArrayList = new ArrayList<>();
+        dayModelArrayList.addAll(dayModelArrayList1);
+        notifyDataSetChanged();
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         RowItemDayBinding binding;
 

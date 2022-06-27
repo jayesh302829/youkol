@@ -20,6 +20,7 @@ import com.dk.youkol.R;
 import com.dk.youkol.adapters.DayAdapter;
 import com.dk.youkol.databinding.ActivityDrivingBinding;
 import com.dk.youkol.models.DayModel;
+import com.dk.youkol.roomdb.Converters;
 import com.dk.youkol.roomdb.RepositoryData;
 import com.dk.youkol.roomdb.RoomDataModel;
 import com.suke.widget.SwitchButton;
@@ -37,6 +38,7 @@ public class DrivingActivity extends BaseActivity {
     boolean isTimebase = false;
     RoomDataModel roomDataModel;
     RepositoryData repositoryData;
+    int first = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +48,6 @@ public class DrivingActivity extends BaseActivity {
         type = getIntent().getStringExtra("type");
         roomDataModel = new RoomDataModel();
         init();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                List<RoomDataModel> dataAllList = repositoryData.getAllList();
-
-                for (int position = 0; position < dataAllList.size(); position++) {
-                    RoomDataModel roomDataModel = dataAllList.get(position);
-                    if (roomDataModel.isReset() && roomDataModel.getType().equals(Driving)) {
-                        setData(roomDataModel);
-                    }
-                }
-            }
-        }).start();
 
         binding.btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +156,16 @@ public class DrivingActivity extends BaseActivity {
     }
 
     private void setData(RoomDataModel roomDataModel) {
+        boolean isNearby = Boolean.parseBoolean(roomDataModel.getIsNewarby());
+        boolean isLocationBase = Boolean.parseBoolean(roomDataModel.getLocationBase());
+        boolean isSpeedBase = Boolean.parseBoolean(roomDataModel.getIsSpeedBase());
+        boolean isTimeBase = Boolean.parseBoolean(roomDataModel.getIsTimeBase());
+
+        if (isTimeBase){
+            ArrayList<DayModel> dayModelArrayList = Converters.fromString(roomDataModel.getSelectedDays());
+            dayAdapter.setUpdateList(dayModelArrayList);
+        }
+
         String[] devices = roomDataModel.getDeviceAllow().split(",");
         binding.mainbg1.setSelected(Boolean.parseBoolean(devices[0]));
         binding.mainbg2.setSelected(Boolean.parseBoolean(devices[1]));
@@ -176,10 +174,53 @@ public class DrivingActivity extends BaseActivity {
         binding.mainbg5.setSelected(Boolean.parseBoolean(devices[4]));
         binding.mainbg6.setSelected(Boolean.parseBoolean(devices[5]));
         binding.mainbg7.setSelected(Boolean.parseBoolean(devices[6]));
-        binding.switchnearby.setChecked(Boolean.parseBoolean(roomDataModel.getIsNewarby()));
-        binding.switchButton.setChecked(Boolean.parseBoolean(roomDataModel.getLocationBase()));
-        binding.switchButton1.setChecked(Boolean.parseBoolean(roomDataModel.getIsSpeedBase()));
-        binding.switchButton2.setChecked(Boolean.parseBoolean(roomDataModel.getIsTimeBase()));
+        binding.switchnearby.setChecked(isNearby);
+        binding.switchButton.setChecked(isLocationBase);
+        binding.switchButton1.setChecked(isSpeedBase);
+        binding.switchButton2.setChecked(isTimeBase);
+
+        if (isNearby) {
+            binding.clNearby.setVisibility(View.VISIBLE);
+            binding.seekBar.setProgress(Integer.parseInt(roomDataModel.nearbyDistance));
+        }else {
+            binding.clNearby.setVisibility(View.GONE);
+        }
+
+        if (isSpeedBase){
+            binding.seekBarSpeed.setProgress(Integer.parseInt(roomDataModel.speed));
+            binding.speedbased.setVisibility(View.VISIBLE);
+        }else {
+            binding.seekBarSpeed.setProgress(0);
+            binding.speedbased.setVisibility(View.GONE);
+        }
+
+        if (isTimeBase){
+            binding.timeZone.setVisibility(View.VISIBLE);
+            binding.seekBar1.setProgress(Integer.parseInt(roomDataModel.startTime));
+            binding.seekBar2.setProgress(Integer.parseInt(roomDataModel.endTime));
+        }else {
+            binding.timeZone.setVisibility(View.GONE);
+        }
+
+        try {
+            if (roomDataModel.getPolicyApply().equals("All users")){
+                binding.rballuser.setChecked(true);
+            }else if (roomDataModel.getPolicyApply().equals("Specific groups")){
+                binding.rbspecificGroup.setChecked(true);
+            }else {
+                binding.rbspecificUser.setChecked(true);
+            }
+        }catch (Exception exception){
+
+        }
+
+
+        String[] notifications = roomDataModel.getNotification().split(",");
+        binding.appCompatCheckBox1.setChecked(Boolean.parseBoolean(notifications[0]));
+        binding.appCompatCheckBox2.setChecked(Boolean.parseBoolean(notifications[1]));
+        binding.appCompatCheckBox3.setChecked(Boolean.parseBoolean(notifications[2]));
+        binding.appCompatCheckBox4.setChecked(Boolean.parseBoolean(notifications[3]));
+        binding.appCompatCheckBox5.setChecked(Boolean.parseBoolean(notifications[4]));
 
     }
 
@@ -240,19 +281,7 @@ public class DrivingActivity extends BaseActivity {
         roomDataModel.setNotification(notification);
         roomDataModel.setType("Driving");
         ArrayList<DayModel> list = dayAdapter.dayModelArrayList;
-        ArrayList<String> strings = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            DayModel model = list.get(i);
-            if (model.isSelected()) {
-                strings.add(model.getDayName());
-            }
-        }
-        StringBuilder sb = new StringBuilder();
-        for (String s : strings) {
-            sb.append(s);
-            sb.append(" ");
-        }
-        roomDataModel.setSelectedDays(sb.toString());
+        roomDataModel.setSelectedDays(Converters.fromArrayList(list));
         roomDataModel.setReset(true);
         new Thread(new Runnable() {
             @Override
@@ -312,19 +341,7 @@ public class DrivingActivity extends BaseActivity {
         roomDataModel.setType("Driving");
         roomDataModel.setReset(true);
         ArrayList<DayModel> list = dayAdapter.dayModelArrayList;
-        ArrayList<String> strings = new ArrayList<>();
-        for (int i = 0; i < list.size(); i++) {
-            DayModel model = list.get(i);
-            if (model.isSelected()) {
-                strings.add(model.getDayName());
-            }
-        }
-        StringBuilder sb = new StringBuilder();
-        for (String s : strings) {
-            sb.append(s);
-            sb.append(" ");
-        }
-        roomDataModel.setSelectedDays(sb.toString());
+        roomDataModel.setSelectedDays(Converters.fromArrayList(list));
         return roomDataModel;
     }
 
@@ -346,46 +363,23 @@ public class DrivingActivity extends BaseActivity {
     }
 
     public void init() {
-        dayModelArrayList.add(new DayModel("mon", "m", getResources().getDrawable(R.drawable.day_blue_border), false, true));
-        dayModelArrayList.add(new DayModel("tue", "t", getResources().getDrawable(R.drawable.day_blue_border), false, true));
-        dayModelArrayList.add(new DayModel("wed", "w", getResources().getDrawable(R.drawable.day_blue_border), false, true));
-        dayModelArrayList.add(new DayModel("thu", "t", getResources().getDrawable(R.drawable.day_blue_border), false, true));
-        dayModelArrayList.add(new DayModel("fri", "f", getResources().getDrawable(R.drawable.day_blue_border), false, true));
-        dayModelArrayList.add(new DayModel("sat", "s", getResources().getDrawable(R.drawable.day_blue_border), false, true));
-        dayModelArrayList.add(new DayModel("sun", "S", getResources().getDrawable(R.drawable.day_blue_border), false, true));
+        dayModelArrayList.add(new DayModel("mon", "m", R.drawable.day_blue_border, false, true));
+        dayModelArrayList.add(new DayModel("tue", "t", R.drawable.day_blue_border, false, true));
+        dayModelArrayList.add(new DayModel("wed", "w", R.drawable.day_blue_border, false, true));
+        dayModelArrayList.add(new DayModel("thu", "t", R.drawable.day_blue_border, false, true));
+        dayModelArrayList.add(new DayModel("fri", "f", R.drawable.day_blue_border, false, true));
+        dayModelArrayList.add(new DayModel("sat", "s", R.drawable.day_blue_border, false, true));
+        dayModelArrayList.add(new DayModel("sun", "S", R.drawable.day_blue_border, false, true));
 
 
         binding.rvdays.setHasFixedSize(true);
-//        binding.rvdays.addItemDecoration(new DividerItemDecoration(activity, LinearLayout.HORIZONTAL));
         binding.rvdays.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
+        setAdapter(dayModelArrayList, 0);
 
-        ViewTreeObserver vto = binding.rvdays.getViewTreeObserver();
-        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            public boolean onPreDraw() {
-                binding.rvdays.getViewTreeObserver().removeOnPreDrawListener(this);
-                int finalHeight = binding.rvdays.getMeasuredHeight();
-                int finalWidth = binding.rvdays.getMeasuredWidth();
-                dayAdapter = new DayAdapter(dayModelArrayList, isTimebase, activity, finalWidth, new DayInterface() {
-                    @Override
-                    public void passPosition(int position, DayModel dayModel) {
-                        DayModel selectedday = dayAdapter.dayModelArrayList.get(position);
-                        if (selectedday.isSelected()) {
-                            selectedday.setSelected(false);
-                        } else {
-                            selectedday.setSelected(true);
-                        }
-                        dayAdapter.notifyDataSetChanged();
-                    }
-                });
-                binding.timeZone.setVisibility(View.GONE);
-                binding.rvdays.setAdapter(dayAdapter);
-                return true;
-            }
-        });
         binding.seekBar.setMax(10);
         binding.seekBar1.setMax(1439);
         binding.seekBar2.setMax(1439);
-        binding.seekBarSpeed.setProgress(0);
+//        binding.seekBarSpeed.setProgress(0);
         binding.seekBarSpeed.setMin(20);
         binding.seekBarSpeed.setMax(80);
         binding.seekBar1.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -515,6 +509,7 @@ public class DrivingActivity extends BaseActivity {
                     binding.seekBar2.setProgress(0);
 
                 } else {
+                    first = 1;
                     binding.timeZone.setVisibility(View.VISIBLE);
                     isTimebase = true;
                 }
@@ -551,6 +546,54 @@ public class DrivingActivity extends BaseActivity {
 
         setAdmin();
 
+        ViewTreeObserver vto = binding.rvdays.getViewTreeObserver();
+        vto.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
+            public boolean onPreDraw() {
+                binding.rvdays.getViewTreeObserver().removeOnPreDrawListener(this);
+                int finalHeight = binding.rvdays.getMeasuredHeight();
+                int finalWidth = binding.rvdays.getMeasuredWidth();
+                dayAdapter = new DayAdapter(dayModelArrayList, isTimebase, activity, finalWidth, new DayInterface() {
+                    @Override
+                    public void passPosition(int position, DayModel dayModel) {
+                        DayModel selectedday = dayAdapter.dayModelArrayList.get(position);
+                        if (selectedday.isSelected()) {
+                            selectedday.setSelected(false);
+                        } else {
+                            selectedday.setSelected(true);
+                        }
+                        dayAdapter.notifyDataSetChanged();
+                    }
+                });
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        List<RoomDataModel> dataAllList = repositoryData.getAllList();
+
+                        for (int position = 0; position < dataAllList.size(); position++) {
+                            RoomDataModel roomDataModel = dataAllList.get(position);
+                            if (roomDataModel.isReset() && roomDataModel.getType().equals(Driving)) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        setData(roomDataModel);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                }).start();
+
+                binding.timeZone.setVisibility(View.GONE);
+                binding.rvdays.setAdapter(dayAdapter);
+                return true;
+            }
+        });
+
+
+    }
+
+    private void setAdapter(ArrayList<DayModel> dayModelArrayList1, int i) {
 
     }
 

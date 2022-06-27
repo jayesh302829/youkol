@@ -1,5 +1,8 @@
 package com.dk.youkol;
 
+import android.content.Intent;
+import android.content.IntentFilter;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
 public class Application extends android.app.Application {
@@ -14,6 +17,7 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         application = this;
+
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     }
 }

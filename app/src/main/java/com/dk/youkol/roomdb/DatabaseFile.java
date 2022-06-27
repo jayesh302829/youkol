@@ -10,6 +10,7 @@ import androidx.room.TypeConverters;
 import com.dk.youkol.roomdb.dbInterface.DataDaoAccess;
 
 @androidx.room.Database(entities = {RoomDataModel.class}, version = 2, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class DatabaseFile extends RoomDatabase {
 
     public static String DB_NAME = "YoukolDB";

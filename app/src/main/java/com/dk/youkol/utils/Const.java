@@ -1,6 +1,13 @@
 package com.dk.youkol.utils;
 
 public class Const {
+    public static final String MON = "mon";
+    public static final String TUE = "tue";
+    public static final String WED = "wed";
+    public static final String THU = "thu";
+    public static final String FRI = "fri";
+    public static final String SAT = "sat";
+    public static final String SUN = "sun";
     public static String Admin = "Admin";
     public static String Guest = "Guest";
     public static String Driving = "Driving";

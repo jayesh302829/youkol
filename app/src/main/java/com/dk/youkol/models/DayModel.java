@@ -5,10 +5,10 @@ import android.graphics.drawable.Drawable;
 public class DayModel {
 
     String dayName,daySortName;
-    Drawable drawable;
+    int drawable;
     boolean isSelected,isEnable;
 
-    public DayModel(String dayName, String daySortName, Drawable drawable, boolean isSelected, boolean isEnable) {
+    public DayModel(String dayName, String daySortName, int drawable, boolean isSelected, boolean isEnable) {
         this.dayName = dayName;
         this.daySortName = daySortName;
         this.drawable = drawable;
@@ -32,11 +32,11 @@ public class DayModel {
         this.daySortName = daySortName;
     }
 
-    public Drawable getDrawable() {
+    public int getDrawable() {
         return drawable;
     }
 
-    public void setDrawable(Drawable drawable) {
+    public void setDrawable(int drawable) {
         this.drawable = drawable;
     }
 

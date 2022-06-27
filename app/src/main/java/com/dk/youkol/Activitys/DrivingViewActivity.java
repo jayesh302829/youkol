@@ -61,13 +61,13 @@ public class DrivingViewActivity extends BaseActivity {
         binding.textView7.setText(Phonescreen);
 
 
-        dayModelArrayList.add(new DayModel("mon","m",getResources().getDrawable(R.drawable.day_blue_border),true,false));
-        dayModelArrayList.add(new DayModel("tue","t",getResources().getDrawable(R.drawable.day_blue_border),true,false));
-        dayModelArrayList.add(new DayModel("wed","w",getResources().getDrawable(R.drawable.day_blue_border),false,false));
-        dayModelArrayList.add(new DayModel("thu","t",getResources().getDrawable(R.drawable.day_blue_border),true,false));
-        dayModelArrayList.add(new DayModel("fri","f",getResources().getDrawable(R.drawable.day_blue_border),false,false));
-        dayModelArrayList.add(new DayModel("sat","s",getResources().getDrawable(R.drawable.day_blue_border),false,false));
-        dayModelArrayList.add(new DayModel("sun","S",getResources().getDrawable(R.drawable.day_blue_border),true,false));
+        dayModelArrayList.add(new DayModel("mon","m",R.drawable.day_blue_border,true,false));
+        dayModelArrayList.add(new DayModel("tue","t",R.drawable.day_blue_border,true,false));
+        dayModelArrayList.add(new DayModel("wed","w",R.drawable.day_blue_border,false,false));
+        dayModelArrayList.add(new DayModel("thu","t",R.drawable.day_blue_border,true,false));
+        dayModelArrayList.add(new DayModel("fri","f",R.drawable.day_blue_border,false,false));
+        dayModelArrayList.add(new DayModel("sat","s",R.drawable.day_blue_border,false,false));
+        dayModelArrayList.add(new DayModel("sun","S",R.drawable.day_blue_border,true,false));
 
         binding.seekBar.setOnTouchListener(new View.OnTouchListener() {
             @Override
