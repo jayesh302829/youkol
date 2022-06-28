@@ -9,11 +9,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.AudioDeviceCallback;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.media.VolumeProvider;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -31,6 +33,7 @@ import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.impl.cli
 
 public class MainActivity extends BaseActivity {
 
+    public static boolean isBleConnected;
     ActivityMainBinding binding;
     Activity activity = this;
     private boolean isEmailValid;
@@ -38,11 +41,13 @@ public class MainActivity extends BaseActivity {
     HeadsetReceiver headsetReceiver;
     VolumeChangeReceiver volumeChangeReceiver;
     String VOLUME_CHANGE_ACTION = "android.media.VOLUME_CHANGED_ACTION";
+    private AudioManager audioManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(activity, R.layout.activity_main);
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         headsetReceiver = new HeadsetReceiver();
         volumeChangeReceiver = new VolumeChangeReceiver();
         IntentFilter receiverFilter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
@@ -50,6 +55,22 @@ public class MainActivity extends BaseActivity {
         registerReceiver(headsetReceiver, receiverFilter);
         registerReceiver(volumeChangeReceiver, volFilter);
         onclick();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            audioManager.registerAudioDeviceCallback(new AudioDeviceCallback() {
+                @Override
+                public void onAudioDevicesAdded(AudioDeviceInfo[] addedDevices) {
+                    isBleConnected = true;
+                    super.onAudioDevicesAdded(addedDevices);
+                }
+
+                @Override
+                public void onAudioDevicesRemoved(AudioDeviceInfo[] removedDevices) {
+                    isBleConnected = false;
+                    super.onAudioDevicesRemoved(removedDevices);
+                }
+            },new Handler());
+        }
 
         if (BackgroundService.getInstance() == null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

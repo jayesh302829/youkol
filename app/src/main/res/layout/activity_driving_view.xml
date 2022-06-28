@@ -106,7 +106,8 @@
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/mainbg"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_selector">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage1"
@@ -175,8 +176,10 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainbg1"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_selector">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage2"
@@ -255,8 +258,10 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainbg2"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_selector">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage3"
@@ -324,8 +329,10 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainbg3"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_selector">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage4"
@@ -403,8 +410,10 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainbg4"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_selector">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage5"
@@ -472,8 +481,10 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainbg5"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent">
+                                android:layout_height="match_parent"
+                                android:background="@drawable/bg_selector">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage6"
@@ -543,8 +554,10 @@
                         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/mainbg6"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_selector">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/clImage7"
@@ -617,63 +630,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_nearby"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_15sdp"
-                    android:visibility="visible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_devices">
-
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:id="@+id/appCompatCheckBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:button="@drawable/check_box_disable"
-                        android:checked="true"
-                        android:enabled="false"
-                        android:textColor="#292D32"
-                        android:paddingLeft="@dimen/_5sdp"
-                        android:fontFamily="@font/dmsans_regular"
-                        android:text="@string/nearby_infotainment"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <SeekBar
-                        android:id="@+id/seekBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_15sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginEnd="@dimen/_15sdp"
-                        android:maxHeight="2dp"
-                        android:minHeight="2dp"
-                        android:progress="60"
-                        android:progressDrawable="@drawable/seek_bar_ruler"
-                        android:progressTint="@color/disablecolor"
-                        android:thumb="@drawable/seek_bar_slider_deactive"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/appCompatCheckBox" />
-                    <!--                android:thumb="@drawable/thumb_image"-->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:fontFamily="@font/dmsans_bold"
-                        android:text="Enable from ~0 meters away"
-                        android:textColor="@color/txtcolor"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/seekBar"
-                        app:layout_constraintStart_toStartOf="@+id/seekBar"
-                        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/cl_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -683,7 +639,7 @@
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_nearby">
+                    app:layout_constraintTop_toBottomOf="@+id/cl_devices">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -695,16 +651,105 @@
                         app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_nearby"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cl_devices">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/nearby"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <!-- <com.suke.widget.SwitchButton
+                                     android:id="@+id/switchButton"
+                                     android:layout_width="@dimen/_25sdp"
+                                     android:layout_height="@dimen/_15sdp"
+                                     app:layout_constraintBottom_toBottomOf="parent"
+                                     app:layout_constraintStart_toStartOf="parent"
+                                     app:layout_constraintTop_toTopOf="parent"
+                                     app:sb_background="@color/disable_switch_on"
+                                     app:sb_checked="false"
+                                     android:clickable="false"
+                                     android:visibility="gone"
+                                     app:sb_button_color="@color/white"
+                                     app:sb_checked_color="@color/disablecolor"
+                                     app:sb_checkline_color="@color/disablecolor"
+                                     app:sb_checkline_width="0dp"
+                                     app:sb_shadow_color="@color/disable_switch_on"
+                                     app:sb_uncheckcircle_color="@color/disable_switch_on" />-->
+
+                                <ImageView
+                                    android:id="@+id/iv_switch"
+                                    android:layout_width="@dimen/_25sdp"
+                                    android:layout_height="@dimen/_15sdp"
+                                    android:src="@drawable/iv_switch_off"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"/>
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:fontFamily="@font/dmsans_regular"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/nearby_infotainment"
+                                    android:textColor="@color/subtxtcolor"
+                                    app:layout_constraintBottom_toBottomOf="@+id/iv_switch"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/iv_switch"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <SeekBar
+                                android:id="@+id/seekBar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:maxHeight="2dp"
+                                android:minHeight="2dp"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/seek_bar_ruler"
+                                android:progressTint="@color/disablecolor"
+                                android:thumb="@drawable/seek_bar_slider_deactive"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/nearby" />
+                            <!--                android:thumb="@drawable/thumb_image"-->
+                            <TextView
+                                android:id="@+id/tvmeters"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="Enable from ~0 meters away"
+                                android:textColor="@color/txtcolor"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/seekBar"
+                                app:layout_constraintStart_toStartOf="@+id/seekBar"
+                                app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"/>
 
                            <!-- <com.suke.widget.SwitchButton
                                 android:id="@+id/switchButton"

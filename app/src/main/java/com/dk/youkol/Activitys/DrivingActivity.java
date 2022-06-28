@@ -187,10 +187,10 @@ public class DrivingActivity extends BaseActivity {
         }
 
         if (isSpeedBase){
-            binding.seekBarSpeed.setProgress(Integer.parseInt(roomDataModel.speed));
+            binding.seekBarSpeed.setProgress(Integer.parseInt(roomDataModel.getSpeed()));
             binding.speedbased.setVisibility(View.VISIBLE);
         }else {
-            binding.seekBarSpeed.setProgress(0);
+//            binding.seekBarSpeed.setProgress(0);
             binding.speedbased.setVisibility(View.GONE);
         }
 
@@ -492,7 +492,7 @@ public class DrivingActivity extends BaseActivity {
             public void onCheckedChanged(SwitchButton view, boolean isChecked) {
                 if (isChecked) {
                     binding.speedbased.setVisibility(View.VISIBLE);
-                    binding.seekBarSpeed.setProgress(0);
+//                    binding.seekBarSpeed.setProgress(0);
                 } else {
                     binding.speedbased.setVisibility(View.GONE);
                 }

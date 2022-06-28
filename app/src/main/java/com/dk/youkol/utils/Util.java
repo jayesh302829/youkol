@@ -1,9 +1,12 @@
 package com.dk.youkol.utils;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothHeadset;
 import android.content.Context;
 import android.media.AudioDeviceInfo;
 import android.media.AudioManager;
 import android.os.Build;
+import android.widget.Toast;
 
 public class Util {
 
@@ -29,4 +32,23 @@ public class Util {
         }
         return false;
     }
+
+    public static boolean isBluetoothHeadsetConnected() {
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
+                && mBluetoothAdapter.getProfileConnectionState(BluetoothHeadset.HEADSET) == BluetoothHeadset.STATE_CONNECTED;
+    }
+
+    public static boolean isWiredHeadsetConnected(Context context) {
+        AudioManager mAudioMgr = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
+        if(mAudioMgr.isWiredHeadsetOn()){
+
+            mAudioMgr.setWiredHeadsetOn(false);
+            mAudioMgr.setSpeakerphoneOn(true);
+            mAudioMgr.setMode(AudioManager.MODE_IN_COMMUNICATION);
+            return true;
+        }
+        return false;
+    }
+
 }
