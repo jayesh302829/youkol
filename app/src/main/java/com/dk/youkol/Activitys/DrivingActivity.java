@@ -363,18 +363,17 @@ public class DrivingActivity extends BaseActivity {
     }
 
     public void init() {
-        dayModelArrayList.add(new DayModel("mon", "m", R.drawable.day_blue_border, false, true));
-        dayModelArrayList.add(new DayModel("tue", "t", R.drawable.day_blue_border, false, true));
-        dayModelArrayList.add(new DayModel("wed", "w", R.drawable.day_blue_border, false, true));
-        dayModelArrayList.add(new DayModel("thu", "t", R.drawable.day_blue_border, false, true));
-        dayModelArrayList.add(new DayModel("fri", "f", R.drawable.day_blue_border, false, true));
-        dayModelArrayList.add(new DayModel("sat", "s", R.drawable.day_blue_border, false, true));
-        dayModelArrayList.add(new DayModel("sun", "S", R.drawable.day_blue_border, false, true));
+        dayModelArrayList.add(new DayModel("mon", "m", R.drawable.day_blue_border, false));
+        dayModelArrayList.add(new DayModel("tue", "t", R.drawable.day_blue_border, false));
+        dayModelArrayList.add(new DayModel("wed", "w", R.drawable.day_blue_border, false));
+        dayModelArrayList.add(new DayModel("thu", "t", R.drawable.day_blue_border, false));
+        dayModelArrayList.add(new DayModel("fri", "f", R.drawable.day_blue_border, false));
+        dayModelArrayList.add(new DayModel("sat", "s", R.drawable.day_blue_border, false));
+        dayModelArrayList.add(new DayModel("sun", "S", R.drawable.day_blue_border, false));
 
 
         binding.rvdays.setHasFixedSize(true);
         binding.rvdays.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
-        setAdapter(dayModelArrayList, 0);
 
         binding.seekBar.setMax(10);
         binding.seekBar1.setMax(1439);
@@ -552,7 +551,7 @@ public class DrivingActivity extends BaseActivity {
                 binding.rvdays.getViewTreeObserver().removeOnPreDrawListener(this);
                 int finalHeight = binding.rvdays.getMeasuredHeight();
                 int finalWidth = binding.rvdays.getMeasuredWidth();
-                dayAdapter = new DayAdapter(dayModelArrayList, isTimebase, activity, finalWidth, new DayInterface() {
+                dayAdapter = new DayAdapter("Edit",dayModelArrayList, isTimebase, activity, finalWidth, new DayInterface() {
                     @Override
                     public void passPosition(int position, DayModel dayModel) {
                         DayModel selectedday = dayAdapter.dayModelArrayList.get(position);
@@ -590,10 +589,6 @@ public class DrivingActivity extends BaseActivity {
             }
         });
 
-
-    }
-
-    private void setAdapter(ArrayList<DayModel> dayModelArrayList1, int i) {
 
     }
 

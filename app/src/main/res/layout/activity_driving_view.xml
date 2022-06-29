@@ -107,7 +107,7 @@
                                 android:id="@+id/mainbg"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/bg_selector">
+                                android:background="@drawable/bg_selector_disable">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage1"
@@ -179,7 +179,7 @@
                                 android:id="@+id/mainbg1"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/bg_selector">
+                                android:background="@drawable/bg_selector_disable">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage2"
@@ -261,7 +261,7 @@
                                 android:id="@+id/mainbg2"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/bg_selector">
+                                android:background="@drawable/bg_selector_disable">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage3"
@@ -332,7 +332,7 @@
                                 android:id="@+id/mainbg3"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/bg_selector">
+                                android:background="@drawable/bg_selector_disable">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage4"
@@ -413,7 +413,7 @@
                                 android:id="@+id/mainbg4"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/bg_selector">
+                                android:background="@drawable/bg_selector_disable">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage5"
@@ -484,7 +484,7 @@
                                 android:id="@+id/mainbg5"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:background="@drawable/bg_selector">
+                                android:background="@drawable/bg_selector_disable">
 
                                 <androidx.constraintlayout.widget.ConstraintLayout
                                     android:id="@+id/clImage6"
@@ -557,7 +557,7 @@
                             android:id="@+id/mainbg6"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/bg_selector">
+                            android:background="@drawable/bg_selector_disable">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
                                 android:id="@+id/clImage7"
@@ -720,6 +720,7 @@
                                 android:maxHeight="2dp"
                                 android:minHeight="2dp"
                                 android:progress="60"
+                                android:visibility="gone"
                                 android:progressDrawable="@drawable/seek_bar_ruler"
                                 android:progressTint="@color/disablecolor"
                                 android:thumb="@drawable/seek_bar_slider_deactive"
@@ -733,9 +734,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_10sdp"
                                 android:layout_marginBottom="@dimen/_5sdp"
+                                android:visibility="gone"
                                 android:fontFamily="@font/dmsans_bold"
                                 android:text="Enable from ~0 meters away"
-                                android:textColor="@color/txtcolor"
+                                android:textColor="@color/subtxtcolor"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="@+id/seekBar"
                                 app:layout_constraintStart_toStartOf="@+id/seekBar"
@@ -842,6 +844,60 @@
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/speedbased"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_15sdp"
+                            android:layout_marginEnd="@dimen/_15sdp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/cl_devices">
+
+                            <!-- <androidx.appcompat.widget.AppCompatCheckBox
+                                 android:id="@+id/appCompatCheckBox"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:button="@drawable/check_box_tint"
+                                 android:checked="false"
+                                 android:fontFamily="@font/dmsans_regular"
+                                 android:text="@string/nearby_infotainment"
+                                 app:layout_constraintStart_toStartOf="parent"
+                                 app:layout_constraintTop_toTopOf="parent" />-->
+
+                            <SeekBar
+                                android:id="@+id/seekBarSpeed"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_15sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:maxHeight="2dp"
+                                android:minHeight="2dp"
+                                android:progressDrawable="@drawable/seek_bar_ruler"
+                                android:progressTint="@color/disablecolor"
+                                android:thumb="@drawable/seek_bar_slider_deactive"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                            <!--                android:thumb="@drawable/thumb_image"-->
+                            <TextView
+                                android:id="@+id/tvSpeed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_5sdp"
+                                android:fontFamily="@font/dmsans_bold"
+                                android:text="20 km/h"
+                                android:textColor="@color/subtxtcolor"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/seekBarSpeed"
+                                app:layout_constraintStart_toStartOf="@+id/seekBarSpeed"
+                                app:layout_constraintTop_toBottomOf="@+id/seekBarSpeed" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -869,7 +925,7 @@
                                 android:id="@+id/iv_switch3"
                                 android:layout_width="@dimen/_25sdp"
                                 android:layout_height="@dimen/_15sdp"
-                                android:src="@drawable/iv_switch_on"
+                                android:src="@drawable/iv_switch_off"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"/>
@@ -889,92 +945,98 @@
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/rvdays"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_20sdp"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:layout_marginEnd="@dimen/_20sdp" />
-
                         <LinearLayout
+                            android:id="@+id/timeZone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_25sdp"
-                            android:layout_marginTop="@dimen/_20sdp">
+                            android:orientation="vertical"
+                            android:visibility="gone">
 
-                            <TextView
-                                android:id="@+id/titleTime"
-                                android:layout_width="wrap_content"
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvdays"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/dmsans_regular"
-                                android:text="Start time: "
-                                android:textColor="@color/black" />
+                                android:layout_marginStart="@dimen/_20sdp"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:layout_marginEnd="@dimen/_20sdp" />
 
-                            <TextView
-                                android:id="@+id/startTime"
-                                android:layout_width="wrap_content"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/dmsans_regular"
-                                android:text="00:00"
-                                android:textColor="@color/black" />
+                                android:layout_marginStart="@dimen/_25sdp"
+                                android:layout_marginTop="@dimen/_20sdp">
+
+                                <TextView
+                                    android:id="@+id/titleTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/dmsans_regular"
+                                    android:text="Start time: "
+                                    android:textColor="@color/black" />
+
+                                <TextView
+                                    android:id="@+id/startTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/dmsans_regular"
+                                    android:text="00:00"
+                                    android:textColor="@color/black" />
+
+                            </LinearLayout>
+
+
+                            <SeekBar
+                                android:id="@+id/seekBar1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:maxHeight="2dp"
+                                android:minHeight="2dp"
+                                android:progressDrawable="@drawable/seek_bar_ruler"
+                                android:progressTint="@color/disablecolor"
+                                android:thumb="@drawable/small_slider_deactive" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_25sdp"
+                                android:layout_marginTop="@dimen/_10sdp">
+
+                                <TextView
+                                    android:id="@+id/titleendTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/dmsans_regular"
+                                    android:text="End time: "
+                                    android:textColor="@color/black" />
+
+                                <TextView
+                                    android:id="@+id/endTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/dmsans_regular"
+                                    android:text="00:00"
+                                    android:textColor="@color/black" />
+
+                            </LinearLayout>
+
+
+                            <SeekBar
+                                android:id="@+id/seekBar2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginEnd="@dimen/_15sdp"
+                                android:maxHeight="2dp"
+                                android:minHeight="2dp"
+                                android:progressDrawable="@drawable/seek_bar_ruler"
+                                android:progressTint="@color/disablecolor"
+                                android:thumb="@drawable/small_slider_deactive" />
 
                         </LinearLayout>
-
-
-                        <SeekBar
-                            android:id="@+id/seekBar1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_2sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:maxHeight="2dp"
-                            android:minHeight="2dp"
-                            android:progress="20"
-                            android:enabled="false"
-                            android:progressDrawable="@drawable/seek_bar_ruler"
-                            android:progressTint="@color/disablecolor"
-                            android:thumb="@drawable/seek_bar_slider_deactive" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_25sdp"
-                            android:layout_marginTop="@dimen/_10sdp">
-
-                            <TextView
-                                android:id="@+id/titleendTime"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/dmsans_regular"
-                                android:text="End time: "
-                                android:textColor="@color/black" />
-
-                            <TextView
-                                android:id="@+id/endTime"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/dmsans_regular"
-                                android:text="00:00"
-                                android:textColor="@color/black" />
-
-                        </LinearLayout>
-
-
-                        <SeekBar
-                            android:id="@+id/seekBar2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/_15sdp"
-                            android:layout_marginTop="@dimen/_2sdp"
-                            android:layout_marginEnd="@dimen/_15sdp"
-                            android:maxHeight="2dp"
-                            android:minHeight="2dp"
-                            android:progress="80"
-                            android:progressDrawable="@drawable/seek_bar_ruler"
-                            android:progressTint="@color/disablecolor"
-                            android:thumb="@drawable/seek_bar_slider_deactive" />
 
                     </LinearLayout>
 
@@ -1010,7 +1072,8 @@
                         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
                         <androidx.appcompat.widget.AppCompatRadioButton
-                            android:layout_width="wrap_content"
+                            android:id="@+id/rballuser"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@android:color/transparent"
@@ -1024,7 +1087,8 @@
                             android:textSize="@dimen/_10sdp" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
-                            android:layout_width="wrap_content"
+                            android:id="@+id/rbspecific_group"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@android:color/transparent"
@@ -1033,12 +1097,13 @@
                             android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:paddingLeft="@dimen/_5sdp"
-                            android:text="Spesific groups"
+                            android:text="Specific groups"
                             android:textColor="@color/subtxtcolor"
                             android:textSize="@dimen/_10sdp" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
-                            android:layout_width="wrap_content"
+                            android:id="@+id/rbspecificUser"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_5sdp"
                             android:background="@android:color/transparent"
@@ -1047,7 +1112,7 @@
                             android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:paddingLeft="@dimen/_5sdp"
-                            android:text="Spesific users"
+                            android:text="Specific users"
                             android:textColor="@color/subtxtcolor"
                             android:textSize="@dimen/_10sdp" />
 
@@ -1078,7 +1143,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:button="@drawable/check_box_disable"
-                            android:checked="true"
+                            android:checked="false"
                             android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Policy start"
@@ -1090,7 +1155,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:button="@drawable/check_box_disable"
-                            android:checked="true"
+                            android:checked="false"
                             android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Policy end"
@@ -1126,7 +1191,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:button="@drawable/check_box_disable"
-                            android:checked="true"
+                            android:checked="false"
                             android:enabled="false"
                             android:fontFamily="@font/dmsans_regular"
                             android:text="   Exceptions"

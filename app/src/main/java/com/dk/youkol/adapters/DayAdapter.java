@@ -23,13 +23,15 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.MyViewHolder> {
     DayInterface dayInterface;
     int width;
     boolean isTimebase;
+    String type;
 
-    public DayAdapter(ArrayList<DayModel> dayModelArrayList, boolean isTimebase, Activity activity, int width, DayInterface dayInterface) {
+    public DayAdapter(String type, ArrayList<DayModel> dayModelArrayList, boolean isTimebase, Activity activity, int width, DayInterface dayInterface) {
         this.activity = activity;
         this.dayModelArrayList = dayModelArrayList;
         this.dayInterface = dayInterface;
         this.width = width;
         this.isTimebase = isTimebase;
+        this.type = type;
     }
 
 
@@ -50,7 +52,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.MyViewHolder> {
     private void bind(RowItemDayBinding binding, DayModel dayModel, int position) {
         binding.maincontainer.getLayoutParams().width = (int) (width / 8.5);
 
-        if (dayModel.isEnable()) {
+        if (type.equals("Edit")) {
             if (dayModel.isSelected()) {
                 binding.day.setText(dayModel.getDaySortName());
                 binding.corner.setBackground(activity.getResources().getDrawable(R.drawable.day_active_border));

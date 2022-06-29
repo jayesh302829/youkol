@@ -6,14 +6,14 @@ public class DayModel {
 
     String dayName,daySortName;
     int drawable;
-    boolean isSelected,isEnable;
+    boolean isSelected;
 
-    public DayModel(String dayName, String daySortName, int drawable, boolean isSelected, boolean isEnable) {
+    public DayModel(String dayName, String daySortName, int drawable, boolean isSelected) {
         this.dayName = dayName;
         this.daySortName = daySortName;
         this.drawable = drawable;
         this.isSelected = isSelected;
-        this.isEnable = isEnable;
+
     }
 
     public String getDayName() {
@@ -48,11 +48,4 @@ public class DayModel {
         isSelected = selected;
     }
 
-    public boolean isEnable() {
-        return isEnable;
-    }
-
-    public void setEnable(boolean enable) {
-        isEnable = enable;
-    }
 }
