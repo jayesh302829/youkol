@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.dk.youkol.Interfaces.DayInterface;
@@ -39,6 +40,7 @@ public class DrivingActivity extends BaseActivity {
     RoomDataModel roomDataModel;
     RepositoryData repositoryData;
     int first = 0;
+    ArrayList<String> selectedTitle = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +71,15 @@ public class DrivingActivity extends BaseActivity {
                 if (binding.mainbg1.isSelected()) {
                     binding.textView1.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg1.setSelected(false);
+                    selectedTitle.remove(binding.textView1.getText().toString());
                 } else {
-                    binding.textView1.setTextColor(getResources().getColor(R.color.white));
-                    binding.mainbg1.setSelected(true);
+                    if (!binding.mainbg2.isSelected()){
+                        binding.textView1.setTextColor(getResources().getColor(R.color.white));
+                        binding.mainbg1.setSelected(true);
+                        selectedTitle.add(binding.textView1.getText().toString());
+                    }else {
+                        Toast.makeText(activity, "you can't enable speaker with "+binding.textView1.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -79,26 +87,42 @@ public class DrivingActivity extends BaseActivity {
         binding.card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (binding.mainbg2.isSelected()) {
-                    binding.textView2.setTextColor(getResources().getColor(R.color.txtcolor));
-                    binding.mainbg2.setSelected(false);
-                } else {
-                    binding.textView2.setTextColor(getResources().getColor(R.color.white));
-                    binding.mainbg2.setSelected(true);
-                }
+
+                    if (binding.mainbg2.isSelected()) {
+                        binding.textView2.setTextColor(getResources().getColor(R.color.txtcolor));
+                        binding.mainbg2.setSelected(false);
+                    } else {
+                        if (selectedTitle.size()>0){
+                            String s = selectedTitle.get(selectedTitle.size()-1);
+                            Toast.makeText(activity, "you can't enable speaker with "+s, Toast.LENGTH_LONG).show();
+                        }else {
+                            binding.textView2.setTextColor(getResources().getColor(R.color.white));
+                            binding.mainbg2.setSelected(true);
+                        }
+                    }
+
+
             }
         });
 
         binding.card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (binding.mainbg3.isSelected()) {
-                    binding.textView3.setTextColor(getResources().getColor(R.color.txtcolor));
-                    binding.mainbg3.setSelected(false);
-                } else {
-                    binding.textView3.setTextColor(getResources().getColor(R.color.white));
-                    binding.mainbg3.setSelected(true);
-                }
+
+                    if (binding.mainbg3.isSelected()) {
+                        binding.textView3.setTextColor(getResources().getColor(R.color.txtcolor));
+                        binding.mainbg3.setSelected(false);
+                        selectedTitle.remove(binding.textView3.getText().toString());
+                    } else {
+                        if (!binding.mainbg2.isSelected()) {
+                            binding.textView3.setTextColor(getResources().getColor(R.color.white));
+                            binding.mainbg3.setSelected(true);
+                            selectedTitle.add(binding.textView3.getText().toString());
+                        }else {
+                            Toast.makeText(activity, "you can't enable speaker with "+binding.textView3.getText().toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
             }
         });
 
@@ -108,9 +132,15 @@ public class DrivingActivity extends BaseActivity {
                 if (binding.mainbg4.isSelected()) {
                     binding.textView4.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg4.setSelected(false);
+                    selectedTitle.remove(binding.textView4.getText().toString());
                 } else {
-                    binding.textView4.setTextColor(getResources().getColor(R.color.white));
-                    binding.mainbg4.setSelected(true);
+                    if (!binding.mainbg2.isSelected()) {
+                        binding.textView4.setTextColor(getResources().getColor(R.color.white));
+                        binding.mainbg4.setSelected(true);
+                        selectedTitle.add(binding.textView4.getText().toString());
+                    }else {
+                        Toast.makeText(activity, "you can't enable speaker with "+binding.textView4.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -121,9 +151,15 @@ public class DrivingActivity extends BaseActivity {
                 if (binding.mainbg5.isSelected()) {
                     binding.textView5.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg5.setSelected(false);
+                    selectedTitle.remove(binding.textView5.getText().toString());
                 } else {
-                    binding.textView5.setTextColor(getResources().getColor(R.color.white));
-                    binding.mainbg5.setSelected(true);
+                    if (!binding.mainbg2.isSelected()) {
+                        binding.textView5.setTextColor(getResources().getColor(R.color.white));
+                        binding.mainbg5.setSelected(true);
+                        selectedTitle.add(binding.textView5.getText().toString());
+                    }else {
+                        Toast.makeText(activity, "you can't enable speaker with "+binding.textView5.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -134,9 +170,15 @@ public class DrivingActivity extends BaseActivity {
                 if (binding.mainbg6.isSelected()) {
                     binding.textView6.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg6.setSelected(false);
+                    selectedTitle.remove(binding.textView6.getText().toString());
                 } else {
-                    binding.textView6.setTextColor(getResources().getColor(R.color.white));
-                    binding.mainbg6.setSelected(true);
+                    if (!binding.mainbg2.isSelected()) {
+                        binding.textView6.setTextColor(getResources().getColor(R.color.white));
+                        binding.mainbg6.setSelected(true);
+                        selectedTitle.add(binding.textView6.getText().toString());
+                    }else {
+                        Toast.makeText(activity, "you can't enable speaker with "+binding.textView6.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -147,9 +189,15 @@ public class DrivingActivity extends BaseActivity {
                 if (binding.mainbg7.isSelected()) {
                     binding.textView7.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg7.setSelected(false);
+                    selectedTitle.remove(binding.textView7.getText().toString());
                 } else {
-                    binding.textView7.setTextColor(getResources().getColor(R.color.white));
-                    binding.mainbg7.setSelected(true);
+                    if (!binding.mainbg2.isSelected()) {
+                        binding.textView7.setTextColor(getResources().getColor(R.color.white));
+                        binding.mainbg7.setSelected(true);
+                        selectedTitle.add(binding.textView7.getText().toString());
+                    }else {
+                        Toast.makeText(activity, "you can't enable speaker with "+binding.textView7.getText().toString(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

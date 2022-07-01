@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "520192756379",
+    "project_id": "youkol-f34aa",
+    "storage_bucket": "youkol-f34aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520192756379:android:b87449b27a1f502cae143e",
+        "android_client_info": {
+          "package_name": "com.dk.youkol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "520192756379-4jkevdbbajnnr9onju03onjih2a9i7a2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmhcfkum_elWyN7kHt4YKtjMQ5w5FsQis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "520192756379-4jkevdbbajnnr9onju03onjih2a9i7a2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

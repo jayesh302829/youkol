@@ -47,6 +47,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(activity, R.layout.activity_main);
+
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         headsetReceiver = new HeadsetReceiver();
         volumeChangeReceiver = new VolumeChangeReceiver();
@@ -79,6 +80,7 @@ public class MainActivity extends BaseActivity {
                 startService(new Intent(this, BackgroundService.class));
             }
         }
+//        throw new RuntimeException("Test Crash");
     }
 
     private void onclick() {

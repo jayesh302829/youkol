@@ -36,7 +36,9 @@ public class VolumeChangeReceiver extends BroadcastReceiver {
         newVolume = intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_VALUE", 0);
         oldVolume = intent.getIntExtra("android.media.EXTRA_PREV_VOLUME_STREAM_VALUE", 0);
 
-        getDataAndSetVolume(context);
+        if(newVolume != 0) {
+            getDataAndSetVolume(context);
+        }
 
        /* if (newVolume != oldVolume) {
             Toast.makeText(context ,"newVolume" +newVolume + " oldVolume" + oldVolume, Toast.LENGTH_SHORT).show();
@@ -73,9 +75,9 @@ public class VolumeChangeReceiver extends BroadcastReceiver {
                             if (devices[1].equals("true") && devices[3].equals("true")) {
                                 speakerAndBluetooth();
                             }
-                            if (devices[2].equals("true") && devices[1].equals("true")) {
+                            /*if (devices[2].equals("true") && devices[1].equals("true")) {
                                 headPhoneAndSpeaker();
-                            }
+                            }*/
                             if (devices[2].equals("true") && devices[3].equals("true")){
                                 headPhoneAndBle();
                             }
@@ -163,7 +165,6 @@ public class VolumeChangeReceiver extends BroadcastReceiver {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.M)
     private void speaker() {
 //        Log.e("TAG", "isBluetoothScoOn ==>  "+ audioManager.isBluetoothScoOn());
 //        Log.e("TAG", "isBluetoothA2dpOn ==>  "+ audioManager.isBluetoothA2dpOn());
@@ -185,7 +186,6 @@ public class VolumeChangeReceiver extends BroadcastReceiver {
 //            audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL,false);
             audioManager.setStreamMute(AudioManager.USE_DEFAULT_STREAM_TYPE, false);
             audioManager.setMicrophoneMute(false);
-            callVolumeHighAndUnMute();
         }
 
         /*audioManager.setBluetoothA2dpOn(false);
