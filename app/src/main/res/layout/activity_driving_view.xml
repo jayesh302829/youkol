@@ -225,6 +225,22 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/clImage2" />
 
+                                <TextView
+                                    android:id="@+id/tvblock1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/blockbg"
+                                    android:fontFamily="@font/dmsans_bold"
+                                    android:text="*Blocked"
+                                    android:visibility="gone"
+                                    android:padding="@dimen/_3sdp"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="@dimen/_12sdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                         </androidx.cardview.widget.CardView>
@@ -306,6 +322,22 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/clImage3" />
 
+                                <TextView
+                                    android:id="@+id/tvblock2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/blockbg"
+                                    android:fontFamily="@font/dmsans_bold"
+                                    android:text="*Blocked"
+                                    android:visibility="gone"
+                                    android:padding="@dimen/_3sdp"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="@dimen/_12sdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                         </androidx.cardview.widget.CardView>
@@ -376,6 +408,22 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/clImage4" />
+
+                                <TextView
+                                    android:id="@+id/tvblock3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/blockbg"
+                                    android:fontFamily="@font/dmsans_bold"
+                                    android:text="*Blocked"
+                                    android:visibility="gone"
+                                    android:padding="@dimen/_3sdp"
+                                    android:textColor="@android:color/holo_red_dark"
+                                    android:textSize="@dimen/_12sdp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
 

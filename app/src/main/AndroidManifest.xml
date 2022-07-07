@@ -33,13 +33,13 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receivers.VolumeChangeReceiver"
+      <!--  <receiver android:name=".receivers.VolumeChangeReceiver"
             android:exported="true"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.media.VOLUME_CHANGED_ACTION" />
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
         <activity
             android:name=".Activitys.DrivingViewActivity"

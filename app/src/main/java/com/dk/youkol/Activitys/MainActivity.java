@@ -28,6 +28,7 @@ import com.dk.youkol.receivers.HeadsetReceiver;
 import com.dk.youkol.receivers.VolumeChangeReceiver;
 import com.dk.youkol.services.BackgroundService;
 import com.dk.youkol.utils.Const;
+import com.dk.youkol.utils.SettingsContentObserver;
 import com.dk.youkol.utils.Util;
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.impl.client.AbstractResponseHandler;
 
@@ -39,9 +40,10 @@ public class MainActivity extends BaseActivity {
     private boolean isEmailValid;
     private boolean isPasswordValid;
     HeadsetReceiver headsetReceiver;
-    VolumeChangeReceiver volumeChangeReceiver;
+//    VolumeChangeReceiver volumeChangeReceiver;
     String VOLUME_CHANGE_ACTION = "android.media.VOLUME_CHANGED_ACTION";
     private AudioManager audioManager;
+    private SettingsContentObserver mSettingsContentObserver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +52,13 @@ public class MainActivity extends BaseActivity {
 
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         headsetReceiver = new HeadsetReceiver();
-        volumeChangeReceiver = new VolumeChangeReceiver();
+//        volumeChangeReceiver = new VolumeChangeReceiver();
         IntentFilter receiverFilter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
         IntentFilter volFilter = new IntentFilter(VOLUME_CHANGE_ACTION);
         registerReceiver(headsetReceiver, receiverFilter);
-        registerReceiver(volumeChangeReceiver, volFilter);
+//        registerReceiver(volumeChangeReceiver, volFilter);
+        mSettingsContentObserver = new SettingsContentObserver(this,new Handler());
+        getApplicationContext().getContentResolver().registerContentObserver(android.provider.Settings.System.CONTENT_URI, true, mSettingsContentObserver );
         onclick();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

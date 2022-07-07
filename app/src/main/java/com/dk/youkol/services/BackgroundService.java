@@ -50,9 +50,7 @@ public class BackgroundService extends Service {
             mChannel.setDescription(context.getString(R.string.app_name));
             mChannel.enableLights(true);
             mChannel.setLightColor(Color.RED);
-            mChannel.enableVibration(true);
             mChannel.setShowBadge(true);
-            mChannel.setVibrationPattern(new long[]{100, 200, 300, 400, 500, 400, 300, 200, 400});
             nm.createNotificationChannel(mChannel);
 
         }
@@ -71,7 +69,7 @@ public class BackgroundService extends Service {
         return new NotificationCompat.Builder(context, "test_channel")
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentTitle(context.getString(R.string.app_name))
-                .setContentText(status)
+                .setContentText("Running")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(viewPendingIntent)
                 .build();
