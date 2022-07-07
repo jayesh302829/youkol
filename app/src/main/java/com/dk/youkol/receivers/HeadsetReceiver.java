@@ -94,7 +94,7 @@ public class HeadsetReceiver extends BroadcastReceiver {
                                         i++;
                                         isSWSpeaker = true;
                                     }
-                                    if (devices[3].equals("true")) {
+                                    if (devices[3].equals("true") || devices[0].equals("true") || devices[4].equals("true") || devices[5].equals("true")) {
                                         i++;
                                         isSWBleConnected = true;
                                     }

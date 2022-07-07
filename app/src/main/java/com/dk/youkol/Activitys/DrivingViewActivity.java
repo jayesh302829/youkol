@@ -271,6 +271,7 @@ public class DrivingViewActivity extends BaseActivity {
 
         if (card1) {
             binding.textView1.setTextColor(getResources().getColor(R.color.white));
+            binding.tvblock0.setVisibility(View.VISIBLE);
         }
         if (card2) {
             binding.textView2.setTextColor(getResources().getColor(R.color.white));
@@ -286,12 +287,15 @@ public class DrivingViewActivity extends BaseActivity {
         }
         if (card5) {
             binding.textView5.setTextColor(getResources().getColor(R.color.white));
+            binding.tvblock4.setVisibility(View.VISIBLE);
         }
         if (card6) {
             binding.textView6.setTextColor(getResources().getColor(R.color.white));
+            binding.tvblock5.setVisibility(View.VISIBLE);
         }
         if (card7) {
             binding.textView7.setTextColor(getResources().getColor(R.color.white));
+            binding.tvblock6.setVisibility(View.VISIBLE);
         }
 
         if (isNearby) {

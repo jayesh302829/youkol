@@ -80,14 +80,16 @@ public class DrivingActivity extends BaseActivity {
                     binding.textView1.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg1.setSelected(false);
                     selectedTitle.remove(binding.textView1.getText().toString());
+                    binding.tvblock0.setVisibility(View.GONE);
                 } else {
-                    if (!binding.mainbg2.isSelected()) {
-                        binding.textView1.setTextColor(getResources().getColor(R.color.white));
-                        binding.mainbg1.setSelected(true);
-                        selectedTitle.add(binding.textView1.getText().toString());
-                    } else {
-                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView1.getText().toString(), Toast.LENGTH_SHORT).show();
-                    }
+//                    if (!binding.mainbg2.isSelected()) {
+                    binding.textView1.setTextColor(getResources().getColor(R.color.white));
+                    binding.mainbg1.setSelected(true);
+                    selectedTitle.add(binding.textView1.getText().toString());
+                    binding.tvblock0.setVisibility(View.VISIBLE);
+//                    } else {
+//                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView1.getText().toString(), Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }
         });
@@ -166,14 +168,16 @@ public class DrivingActivity extends BaseActivity {
                     binding.textView5.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg5.setSelected(false);
                     selectedTitle.remove(binding.textView5.getText().toString());
+                    binding.tvblock4.setVisibility(View.GONE);
                 } else {
-                    if (!binding.mainbg2.isSelected()) {
-                        binding.textView5.setTextColor(getResources().getColor(R.color.white));
-                        binding.mainbg5.setSelected(true);
-                        selectedTitle.add(binding.textView5.getText().toString());
-                    } else {
-                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView5.getText().toString(), Toast.LENGTH_SHORT).show();
-                    }
+//                    if (!binding.mainbg2.isSelected()) {
+                    binding.textView5.setTextColor(getResources().getColor(R.color.white));
+                    binding.mainbg5.setSelected(true);
+                    selectedTitle.add(binding.textView5.getText().toString());
+                    binding.tvblock4.setVisibility(View.VISIBLE);
+//                    } else {
+//                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView5.getText().toString(), Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }
         });
@@ -185,14 +189,16 @@ public class DrivingActivity extends BaseActivity {
                     binding.textView6.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg6.setSelected(false);
                     selectedTitle.remove(binding.textView6.getText().toString());
+                    binding.tvblock5.setVisibility(View.GONE);
                 } else {
-                    if (!binding.mainbg2.isSelected()) {
-                        binding.textView6.setTextColor(getResources().getColor(R.color.white));
-                        binding.mainbg6.setSelected(true);
-                        selectedTitle.add(binding.textView6.getText().toString());
-                    } else {
-                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView6.getText().toString(), Toast.LENGTH_SHORT).show();
-                    }
+//                    if (!binding.mainbg2.isSelected()) {
+                    binding.textView6.setTextColor(getResources().getColor(R.color.white));
+                    binding.mainbg6.setSelected(true);
+                    selectedTitle.add(binding.textView6.getText().toString());
+                    binding.tvblock5.setVisibility(View.VISIBLE);
+//                    } else {
+//                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView6.getText().toString(), Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }
         });
@@ -204,14 +210,16 @@ public class DrivingActivity extends BaseActivity {
                     binding.textView7.setTextColor(getResources().getColor(R.color.txtcolor));
                     binding.mainbg7.setSelected(false);
                     selectedTitle.remove(binding.textView7.getText().toString());
+                    binding.tvblock6.setVisibility(View.GONE);
                 } else {
-                    if (!binding.mainbg2.isSelected()) {
-                        binding.textView7.setTextColor(getResources().getColor(R.color.white));
-                        binding.mainbg7.setSelected(true);
-                        selectedTitle.add(binding.textView7.getText().toString());
-                    } else {
-                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView7.getText().toString(), Toast.LENGTH_SHORT).show();
-                    }
+//                    if (!binding.mainbg2.isSelected()) {
+                    binding.textView7.setTextColor(getResources().getColor(R.color.white));
+                    binding.mainbg7.setSelected(true);
+                    selectedTitle.add(binding.textView7.getText().toString());
+                    binding.tvblock6.setVisibility(View.VISIBLE);
+//                    } else {
+//                        Toast.makeText(activity, "you can't enable speaker with " + binding.textView7.getText().toString(), Toast.LENGTH_SHORT).show();
+//                    }
                 }
             }
         });
@@ -375,7 +383,7 @@ public class DrivingActivity extends BaseActivity {
                 if (binding.mainbg3.isSelected()) {
                     k++;
                 }
-                if (binding.mainbg4.isSelected()) {
+                if (binding.mainbg1.isSelected() || binding.mainbg4.isSelected() || binding.mainbg5.isSelected() || binding.mainbg6.isSelected()) {
                     k++;
                 }
 
@@ -402,19 +410,19 @@ public class DrivingActivity extends BaseActivity {
     }
 
 
-    public void manage(int i){
-        if (i == 1){
-            if (isSWSpeaker){
-                if (Microphone_Plugged_in || audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()){
-                    Log.e("TAG", "onReceive:isSWSpeaker   Microphone_Plugged_in,  BluetoothScoOn " );
+    public void manage(int i) {
+        if (i == 1) {
+            if (isSWSpeaker) {
+                if (Microphone_Plugged_in || audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()) {
+                    Log.e("TAG", "onReceive:isSWSpeaker   Microphone_Plugged_in,  BluetoothScoOn ");
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
                     audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, false);
                     audioManager.startBluetoothSco();
                     audioManager.setBluetoothScoOn(true);
-                }else {
-                    Log.e("TAG", "onReceive HeadsetReceiver: Speaker Mute" );
+                } else {
+                    Log.e("TAG", "onReceive HeadsetReceiver: Speaker Mute");
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
@@ -422,7 +430,7 @@ public class DrivingActivity extends BaseActivity {
                     audioManager.startBluetoothSco();
                     audioManager.setBluetoothScoOn(true);
                 }
-            }else {
+            } else {
                 audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                 audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                 audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
@@ -431,17 +439,17 @@ public class DrivingActivity extends BaseActivity {
                 audioManager.setBluetoothScoOn(true);
             }
 
-            if (isSWEarphone){
-                if (Microphone_Plugged_in){
-                    Log.e("TAG", "onReceive HeadsetReceiver: Earphone Mute" );
+            if (isSWEarphone) {
+                if (Microphone_Plugged_in) {
+                    Log.e("TAG", "onReceive HeadsetReceiver: Earphone Mute");
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
                     audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, true);
                     audioManager.startBluetoothSco();
                     audioManager.setBluetoothScoOn(true);
-                }else {
-                    Log.e("TAG", "onReceive HeadsetReceiver: Earphone UnMute 0" );
+                } else {
+                    Log.e("TAG", "onReceive HeadsetReceiver: Earphone UnMute 0");
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
@@ -451,17 +459,17 @@ public class DrivingActivity extends BaseActivity {
                 }
             }
 
-            if (isSWBleConnected){
-                if (audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()){
-                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected Mute" );
+            if (isSWBleConnected) {
+                if (audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()) {
+                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected Mute");
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
                     audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, true);
                     audioManager.stopBluetoothSco();
                     audioManager.setBluetoothScoOn(false);
-                }else {
-                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected UnMute" );
+                } else {
+                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected UnMute");
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
@@ -470,29 +478,29 @@ public class DrivingActivity extends BaseActivity {
                     audioManager.setBluetoothScoOn(true);
                 }
             }
-        }else if (i == 2){
-            if (isSWSpeaker && isSWEarphone){
+        } else if (i == 2) {
+            if (isSWSpeaker && isSWEarphone) {
                 audioManager.startBluetoothSco();
                 audioManager.setBluetoothScoOn(true);
-                if (audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn() ){
+                if (audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()) {
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
                     audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, false);
 
-                    if (Microphone_Plugged_in){
+                    if (Microphone_Plugged_in) {
                         audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                         audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                         audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
                         audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, true);
-                    }else {
+                    } else {
                         audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                         audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                         audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
                         audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, true);
                     }
 
-                }else {
+                } else {
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
@@ -505,7 +513,7 @@ public class DrivingActivity extends BaseActivity {
                 audioManager.startBluetoothSco();
                 audioManager.setBluetoothScoOn(true);
                 audioManager.setSpeakerphoneOn(false);*/
-            }else {
+            } else {
                 audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                 audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                 audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
@@ -514,9 +522,9 @@ public class DrivingActivity extends BaseActivity {
                 audioManager.setBluetoothScoOn(true);
             }
 
-            if (isSWSpeaker && isSWBleConnected){
-                if (audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()){
-                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected Mute" );
+            if (isSWSpeaker && isSWBleConnected) {
+                if (audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()) {
+                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected Mute");
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
@@ -532,8 +540,8 @@ public class DrivingActivity extends BaseActivity {
                     audioManager.stopBluetoothSco();
                     audioManager.setBluetoothScoOn(false);
 
-                } else{
-                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected UnMute" );
+                } else {
+                    Log.e("TAG", "onReceive HeadsetReceiver: BleConnected UnMute");
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
@@ -550,16 +558,16 @@ public class DrivingActivity extends BaseActivity {
                 audioManager.setBluetoothScoOn(true);
             }*/
 
-            if (isSWEarphone && isSWBleConnected){
+            if (isSWEarphone && isSWBleConnected) {
 
-                if (Microphone_Plugged_in || audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()){
+                if (Microphone_Plugged_in || audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()) {
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
                     audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, true);
                     audioManager.stopBluetoothSco();
                     audioManager.setBluetoothScoOn(false);
-                }else {
+                } else {
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
@@ -577,13 +585,13 @@ public class DrivingActivity extends BaseActivity {
                 audioManager.setBluetoothScoOn(true);
             }*/
 
-        }else  if (i >= 3){
-            if (isSWSpeaker && isSWEarphone && isSWBleConnected){
+        } else if (i >= 3) {
+            if (isSWSpeaker && isSWEarphone && isSWBleConnected) {
                 audioManager.setStreamMute(AudioManager.STREAM_MUSIC, true);
                 audioManager.setStreamMute(AudioManager.STREAM_DTMF, true);
                 audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, true);
                 audioManager.setStreamMute(USE_DEFAULT_STREAM_TYPE, true);
-            }else {
+            } else {
                 audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                 audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
                 audioManager.setStreamMute(AudioManager.STREAM_VOICE_CALL, false);
