@@ -375,7 +375,7 @@ public class DrivingActivity extends BaseActivity {
             @Override
             public void run() {
 
-                int k = 0;
+               /* int k = 0;
 
                 if (binding.mainbg2.isSelected()) {
                     k++;
@@ -387,7 +387,7 @@ public class DrivingActivity extends BaseActivity {
                     k++;
                 }
 
-                manage(k);
+                manage(k);*/
 
                 List<RoomDataModel> dataAllList = repositoryData.getAllList();
                 if (dataAllList.size() > 0) {
@@ -413,7 +413,7 @@ public class DrivingActivity extends BaseActivity {
     public void manage(int i) {
         if (i == 1) {
             if (isSWSpeaker) {
-                if (Microphone_Plugged_in || audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()) {
+                if (Microphone_Plugged_in || audioManager.isBluetoothA2dpOn()) {
                     Log.e("TAG", "onReceive:isSWSpeaker   Microphone_Plugged_in,  BluetoothScoOn ");
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);

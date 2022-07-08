@@ -49,7 +49,7 @@ public class SettingsContentObserver extends ContentObserver {
 
         int delta = previousVolume - currentVolume;
 
-        new Thread(new Runnable() {
+       /* new Thread(new Runnable() {
             @Override
             public void run() {
                 int i = 0;
@@ -77,13 +77,16 @@ public class SettingsContentObserver extends ContentObserver {
                     }
                 }
             }
-        }).start();
+        }).start();*/
     }
 
     public void manage(int i) {
         if (i == 1) {
             if (isSWSpeaker) {
-                if (Microphone_Plugged_in || audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()) {
+                Log.e("TAG", "manage: "+Microphone_Plugged_in );
+                Log.e("TAG", "manage: "+audioManager.isBluetoothScoOn() );
+                Log.e("TAG", "manage: "+audioManager.isBluetoothA2dpOn() );
+                if (Microphone_Plugged_in || audioManager.isBluetoothA2dpOn()) {
                     Log.e("TAG", "onReceive:isSWSpeaker   Microphone_Plugged_in,  BluetoothScoOn ");
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);

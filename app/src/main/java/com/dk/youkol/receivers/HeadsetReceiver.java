@@ -43,7 +43,7 @@ public class HeadsetReceiver extends BroadcastReceiver {
                 Microphone_Plugged_in = false;
 //                manage(i);
 
-                new Thread(new Runnable() {
+                /*new Thread(new Runnable() {
                     @Override
                     public void run() {
                         int i = 0;
@@ -71,12 +71,12 @@ public class HeadsetReceiver extends BroadcastReceiver {
                             }
                         }
                     }
-                }).start();
+                }).start();*/
 
             } else if (iii == 1) {
                 Microphone_Plugged_in = true;
 //                manage(i);
-                new Thread(new Runnable() {
+                /*new Thread(new Runnable() {
                     @Override
                     public void run() {
                         int i = 0;
@@ -104,7 +104,7 @@ public class HeadsetReceiver extends BroadcastReceiver {
                             }
                         }
                     }
-                }).start();
+                }).start();*/
                 Log.e("TAG", "onReceive: microphone plugged in");
             }
 
@@ -114,7 +114,7 @@ public class HeadsetReceiver extends BroadcastReceiver {
     public void manage(int i){
         if (i == 1){
             if (isSWSpeaker){
-                if (Microphone_Plugged_in || audioManager.isBluetoothScoOn() || audioManager.isBluetoothA2dpOn()){
+                if (Microphone_Plugged_in || audioManager.isBluetoothA2dpOn()){
                     Log.e("TAG", "onReceive:isSWSpeaker   Microphone_Plugged_in,  BluetoothScoOn " );
                     audioManager.setStreamMute(AudioManager.STREAM_MUSIC, false);
                     audioManager.setStreamMute(AudioManager.STREAM_DTMF, false);
